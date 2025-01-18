@@ -10,8 +10,8 @@ function weiterePrufung() {
 
 var clickcounter2 = 0;
 var messages2 = [
-    '<a href="s-prufung-1.html">SF SPA (20.01)</a>',
-    '<a href="s-prufung-2.html">GF F (29.01)</a>',
+    '<a href="https://quizlet.com/user/opus_magnum/folders/spanisch-prufungsvorbereitung-20012025?i=5wbo8d&x=1xqY">SF SPA (20.01)</a>',
+    '<a href="https://quizlet.com/user/opus_magnum/folders/franzosisch-prufungsvorbereitung-29012025?i=5wbo8d&x=1xqY">GF F (29.01)</a>',
     ];
 
 function Sprachprufung() {
