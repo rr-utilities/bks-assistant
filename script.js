@@ -14,12 +14,12 @@ function BKSLinks() {
 
 var clickcounter2 = 0;
 var messages2 = [
-    '<a href="https://quizlet.com/user/bks_chur/folders/medias-in-res">Latein</a>',
-    '<a href="https://quizlet.com/user/bks_chur/folders/spanisch-puente-nuevo-1-2">Spanisch</a>',
-    '<a href="https://quizlet.com/user/bks_chur/folders/franzosisch-le-cours-intensif-1-2-3">Französisch</a>',
-    '<a href="https://quizlet.com/user/bks_chur/folders/italienisch-espresso-ragazzi-1-2-3">Italienisch</a>',
-    '<a href="https://quizlet.com/user/bks_chur/folders/romanisch-sursilvan-en-lingia-directa-1-2">Romanisch Surilvan</a>',
-    '<a href="https://quizlet.com/user/bks_chur/folders/englisch-headway-intermediate-ready-for-c1-advanced">Englisch</a>',
+    '<a href="https://quizlet.com/user/bks_chur/folders/medias-in-res" target="_blank">Latein</a>',
+    '<a href="https://quizlet.com/user/bks_chur/folders/spanisch-puente-nuevo-1-2" target="_blank">Spanisch</a>',
+    '<a href="https://quizlet.com/user/bks_chur/folders/franzosisch-le-cours-intensif-1-2-3" target="_blank">Französisch</a>',
+    '<a href="https://quizlet.com/user/bks_chur/folders/italienisch-espresso-ragazzi-1-2-3" target="_blank">Italienisch</a>',
+    '<a href="https://quizlet.com/user/bks_chur/folders/romanisch-sursilvan-en-lingia-directa-1-2" target="_blank">Romanisch Surilvan</a>',
+    '<a href="https://quizlet.com/user/bks_chur/folders/englisch-headway-intermediate-ready-for-c1-advanced" target="_blank">Englisch</a>',
     ];
 
 function Sprachen() {
