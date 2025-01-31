@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .calendar-container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            position: relative;
+        }
+
+        .month-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+
+        .day-header {
+            font-weight: bold;
+            background: #666666;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .day {
+            padding: 5px 10px;
+            background: #cecece;
+            border-radius: 5px;
+            min-height: 50px;
+            position: relative;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 50px;
+            word-wrap: break-word;
+        }
+
+        .weekend {
+            background: #999999;
+        }
+
+        .button2 {
+            background: #999999;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button2:hover {
+            background: #666666;
+        }
+
+        .event {
+            font-size: 14px;
+            background: #ffffff;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Agenda</h1>
+
+    <div class="calendar-container">
+        <div class="month-header">
+            <button class="button2" onclick="prevMonth()">‹</button>
+            <span id="month-year"></span>
+            <button class="button2" onclick="nextMonth()">›</button>
+        </div>
+
+        <div class="calendar" id="calendar">
+            <div class="day-header">Mo</div>
+            <div class="day-header">Di</div>
+            <div class="day-header">Mi</div> 
+            <div class="day-header">Do</div>
+            <div class="day-header">Fr</div>
+            <div class="day-header">Sa</div>
+            <div class="day-header">So</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        generateCalendar(currentMonth, currentYear);
+        });
+
+        // Hier Events einfügen
+        // { start: "YYYY-MM-DD", end: "YYYY-MM-DD", title: "TITLE" },
+        const events = [
+            { start: "2025-01-01", end: "2025-01-01", title: "🆓 Winterferien" },
+            { start: "2025-01-02", end: "2025-01-05", title: "🆓" },
+
+            { start: "2025-01-20", end: "2025-01-20", title: "Semesterbeginn" },
+
+            { start: "2025-02-10", end: "2025-02-10", title: "Konzeptabgabe" },
+
+            { start: "2025-02-24", end: "2025-02-24", title: "🆓 Sportferien" },
+            { start: "2025-02-25", end: "2025-03-02", title: "🆓" },
+
+            { start: "2025-03-07", end: "2025-03-07", title: "Elternbesuchstag" },
+
+            { start: "2025-03-10", end: "2025-03-10", title: "🆓 Unterrichtsfrei" },
+            { start: "2025-03-11", end: "2025-03-12", title: "🆓" },
+
+            { start: "2025-04-07", end: "2025-04-07", title: "🏫 Themenwoche" },
+            { start: "2025-04-08", end: "2025-04-11", title: "🏫" },
+
+            { start: "2025-04-14", end: "2025-04-14", title: "🆓 Frühlingsferien" },
+            { start: "2025-04-15", end: "2025-04-27", title: "🆓" },
+
+            { start: "2025-05-29", end: "2025-05-29", title: "🆓 Unterrichtsfrei" },
+            { start: "2025-05-30", end: "2025-05-30", title: "🆓" },
+
+            { start: "2025-06-04", end: "2025-06-04", title: "🆓 Unterrichtsfrei" },
+            { start: "2025-06-05", end: "2025-06-06", title: "🆓" },
+
+            { start: "2025-06-09", end: "2025-06-09", title: "🆓 Unterrichtsfrei" },
+
+            { start: "2025-06-13", end: "2025-06-13", title: "Stichtag" },
+
+            { start: "2025-06-30", end: "2025-06-30", title: "🆓 Sommerferien" },
+            { start: "2025-07-01", end: "2025-08-10", title: "🆓" },
+        ];
+
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        function generateCalendar(month, year) {
+            const calendar = document.getElementById("calendar");
+            const monthYear = document.getElementById("month-year");
+
+            const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            monthYear.innerText = `${monthNames[month]} ${year}`;
+
+            calendar.innerHTML = `
+                <div class="day-header">Mo</div> <div class="day-header">Di</div> <div class="day-header">Mi</div> 
+                <div class="day-header">Do</div> <div class="day-header">Fr</div> <div class="day-header">Sa</div> <div class="day-header">So</div>
+            `;
+
+            let firstDay = new Date(year, month, 1).getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            if (firstDay === 0) firstDay = 7;  
+
+            for (let i = 1; i < firstDay; i++) {
+                calendar.innerHTML += `<div></div>`;
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                let dateKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                let eventHTML = "";
+                let multiDayEventHTML = "";
+
+                events.forEach(event => {
+                    const startDate = new Date(event.start);
+                    const endDate = new Date(event.end);
+                    const currentDate = new Date(dateKey);
+
+                    if (currentDate >= startDate && currentDate <= endDate) {
+                        eventHTML += `<div class="event">${event.title}</div>`;
+
+                        if (startDate <= currentDate && endDate >= currentDate) {
+                            multiDayEventHTML = `<div class="multi-day-event-bar"></div>`;
+                        }
+                    }
+                });
+
+                let weekendClass = (new Date(year, month, day).getDay() === 6 || new Date(year, month, day).getDay() === 0) ? "weekend" : "";
+
+                calendar.innerHTML += `
+                    <div class="day ${weekendClass}">
+                        ${day} 
+                        ${multiDayEventHTML}
+                        ${eventHTML}
+                    </div>
+                `;
+            }
+        }
+
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        generateCalendar(currentMonth, currentYear);
+    </script>
+</body>
+</html>
