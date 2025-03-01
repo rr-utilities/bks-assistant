@@ -54,6 +54,17 @@ a:hover {
     text-decoration: underline;
 }
 
+a.styled-link {
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.styled-link:hover {
+    text-decoration: none;
+}
+
 img {
     display: block;
     margin: 50px auto;
@@ -137,12 +148,14 @@ button:focus {
     margin: 0;
     padding: 0;
 }
+
 .dashboard {
     padding: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -150,6 +163,19 @@ button:focus {
     max-width: 1200px;
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .card {
     background-color: #f2f2f2;
     border-radius: 8px;
@@ -157,9 +183,11 @@ button:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
 .card h3 {
     margin-top: 0;
 }
+
 .card p {
     margin-bottom: 10px;
 }
@@ -167,6 +195,21 @@ button:focus {
 .container {
     display: flex;
     gap: 20px;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .minipage {
