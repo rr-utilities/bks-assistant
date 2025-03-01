@@ -252,9 +252,3 @@ button:focus {
         display: none;
     }
 }
-
-@media (max-width: 480px) {
-    .rechner-iframe {
-        display: none;
-    }
-}
