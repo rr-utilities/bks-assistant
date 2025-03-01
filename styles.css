@@ -230,8 +230,7 @@ button:focus {
     }
 }
 
-.agenda-fallback,
-.rechner-fallback {
+.agenda-fallback {
     display: none;
     font-family: Arial, sans-serif;
     font-size: 14px;
