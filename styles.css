@@ -236,3 +236,15 @@ button:focus {
     border: 1px solid #ccc;
     background-color: #f9f9f9;
 }
+
+@media (max-width: 768px) {
+    iframe {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    iframe {
+        display: none;
+    }
+}
