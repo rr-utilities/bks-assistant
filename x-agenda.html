@@ -28,6 +28,20 @@
             position: relative;
         }
 
+        /* Ab Tablet-Größe: 5 Spalten */
+        @media (max-width: 768px) {
+            .calendar {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        /* Auf Handys: 3 Spalten */
+        @media (max-width: 480px) {
+            .calendar {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         .month-header {
             display: flex;
             justify-content: space-between;
@@ -36,6 +50,15 @@
             font-weight: bold;
             color: #666666;
             margin-bottom: 10px;
+        }
+
+        /* Monatstitel zentrieren auf Handy */
+        @media (max-width: 480px) {
+            .month-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
         }
 
         .day-header {
@@ -47,8 +70,16 @@
             font-size: 16px;
         }
 
+        /* Auf Handys kleinere Header */
+        @media (max-width: 480px) {
+            .day-header {
+                padding: 5px;
+                font-size: 14px;
+            }
+        }
+
         .day {
-            padding: 5px 10px;
+            padding: 5px;
             background: #cecece;
             border-radius: 5px;
             min-height: 50px;
@@ -57,8 +88,16 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 50px;
+            height: auto;
             word-wrap: break-word;
+        }
+
+        /* Auf Handys: Mehr Höhe und kleinere Schrift */
+        @media (max-width: 480px) {
+            .day {
+                min-height: 60px;
+                font-size: 12px;
+            }
         }
 
         .weekend {
@@ -87,6 +126,14 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        /* Events kleiner auf Handy */
+        @media (max-width: 480px) {
+            .event {
+                font-size: 12px;
+                padding: 3px;
+            }
         }
     </style>
 </head>
