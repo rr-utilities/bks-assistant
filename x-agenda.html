@@ -108,21 +108,27 @@
             white-space: nowrap;
         }
 
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
         @media (max-width: 900px) {
             .calendar {
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(5, 1fr); /* 5 Spalten bei Tablets */
             }
         }
 
         @media (max-width: 600px) {
             .calendar {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(3, 1fr); /* 3 Spalten bei schmalen Geräten */
             }
         }
 
         @media (max-width: 400px) {
             .calendar {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* 2 Spalten bei sehr schmalen Displays */
             }
         }
     </style>
