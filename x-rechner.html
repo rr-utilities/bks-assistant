@@ -24,34 +24,6 @@
             width: 450px;
         }
 
-        .note-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            gap: 10px;
-        }
-        
-        .note, .weight, .punkte {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .note-row {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .note, .weight, .punkte {
-                width: 90%;
-                max-width: 300px;
-            }
-        }
-
         .tab-container {
             display: flex;
             justify-content: center;
@@ -79,6 +51,22 @@
 
         .calculator.active {
             display: block;
+        }
+
+        .note-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .note, .weight, .punkte {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
         }
 
         .note { width: 60%; margin-right: 5px; }
