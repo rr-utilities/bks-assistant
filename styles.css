@@ -82,7 +82,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    flex-wrap: wrap;  /* Falls Platzmangel: Umbrüche erlauben */
+    flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
@@ -230,6 +230,17 @@ button:focus {
     }
 }
 
+.agenda-fallback,
+.rechner-fallback {
+    display: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background: #f4f4f4;
+    color: #333;
+}
+
 .minipage {
     flex: 1;
     padding: 10px;
@@ -239,18 +250,6 @@ button:focus {
 
 @media (max-width: 768px) {
     .agenda-iframe {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .agenda-iframe {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .rechner-iframe {
         display: none;
     }
 }
