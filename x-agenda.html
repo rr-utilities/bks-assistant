@@ -88,42 +88,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
-        @media (max-width: 768px) {
-            .calendar-container {
-                max-width: 90%;
-                padding: 10px;
-            }
-
-            .day-header, .day {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            .day {
-                min-height: 40px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .calendar {
-                grid-template-columns: repeat(7, minmax(30px, 1fr));
-                gap: 3px;
-            }
-
-            .day-header, .day {
-                font-size: 12px;
-                padding: 5px;
-            }
-
-            .day {
-                min-height: 35px;
-            }
-
-            .month-header {
-                font-size: 18px;
-            }
-        }
     </style>
 </head>
 
