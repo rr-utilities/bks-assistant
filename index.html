@@ -44,13 +44,40 @@
 <body>
     <h1>Agenda</h1>
 </body>
-<iframe class="agenda-iframe" src="x-agenda.html" width="100%" height="600px" frameborder="0">
-    Diese Funktion ist nur auf Desktop-Version verfügbar.
-</iframe>
+<div class="agenda-wrapper">
+    <iframe class="agenda-iframe" src="x-agenda.html" width="100%" height="600px" frameborder="0"></iframe>
+    <div class="agenda-fallback">Die Agenda-Funktion ist nur auf Desktop-Version verfügbar.</div>
+</div>
 
-<iframe class="rechner-iframe" src="x-rechner.html" width="100%" height="650px" frameborder="0">
-    Diese Funktion ist nur auf Desktop-Version verfügbar.
-</iframe>
+<div class="rechner-wrapper">
+    <iframe class="rechner-iframe" src="x-rechner.html" width="100%" height="650px" frameborder="0"></iframe>
+    <div class="rechner-fallback">Die Rechner-Funktion ist nur auf Desktop-Version verfügbar.</div>
+</div>
+
+<script>
+    function checkViewport() {
+        const isMobile = window.innerWidth <= 1024;
+
+        document.querySelectorAll(".agenda-iframe").forEach(iframe => {
+            iframe.style.display = isMobile ? "none" : "block";
+        });
+
+        document.querySelectorAll(".rechner-iframe").forEach(iframe => {
+            iframe.style.display = isMobile ? "none" : "block";
+        });
+
+        document.querySelectorAll(".agenda-fallback").forEach(fallback => {
+            fallback.style.display = isMobile ? "block" : "none";
+        });
+
+        document.querySelectorAll(".rechner-fallback").forEach(fallback => {
+            fallback.style.display = isMobile ? "block" : "none";
+        });
+    }
+
+    window.addEventListener("resize", checkViewport);
+    window.addEventListener("load", checkViewport);
+</script>
 
 <body>
     <h1>Dashboard</h1>
