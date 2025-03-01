@@ -238,13 +238,25 @@ button:focus {
 }
 
 @media (max-width: 768px) {
-    iframe {
+    .agenda-iframe {
         display: none;
     }
 }
 
 @media (max-width: 480px) {
-    iframe {
+    .agenda-iframe {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .rechner-iframe {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .rechner-iframe {
         display: none;
     }
 }
