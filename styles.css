@@ -164,6 +164,18 @@ button:focus {
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .card {
     background-color: #f2f2f2;
     border-radius: 8px;
@@ -186,67 +198,23 @@ button:focus {
     max-width: 100%;
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .minipage {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-}
-
-.container, .dashboard, .minipage {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.container > *, .dashboard > *, .minipage > * {
-    flex: 1;
-    min-width: 250px;
-    box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-    .container, .dashboard {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .container > *, .dashboard > *, .minipage {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .card-container {
-        grid-template-columns: 1fr;
-    }
-
-    .container, .dashboard, .minipage {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .container > *, .dashboard > *, .minipage > * {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
 }
