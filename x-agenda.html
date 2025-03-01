@@ -38,15 +38,6 @@
             margin-bottom: 10px;
         }
 
-        .day-header {
-            font-weight: bold;
-            background: #666666;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
         .day {
             padding: 5px;
             background: #cecece;
@@ -78,6 +69,15 @@
             background: #666666;
         }
 
+        .day-header {
+            font-weight: bold;
+            background: #666666;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
         .event {
             font-size: 14px;
             background: #ffffff;
@@ -89,48 +89,40 @@
             text-overflow: ellipsis;
         }
 
+        .day-header {
+            text-align: center;
+            font-weight: bold;
+            background: #666;
+            color: white;
+            padding: 8px;
+            border-radius: 3px;
+        }
+
+        .event {
+            background: #fff;
+            padding: 3px;
+            border-radius: 3px;
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 900px) {
+            .calendar {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
         @media (max-width: 600px) {
             .calendar {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 2px;
+                grid-template-columns: repeat(3, 1fr);
             }
+        }
 
-            .day-header {
-                display: inline-block;
-                width: calc(100% / 7);
-                text-align: center;
-                box-sizing: border-box;
-            }
-
-            .day {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                flex-direction: column;
-                border: 1px solid #ddd;
-                padding: 8px;
-                min-height: auto;
-            }
-
-            .day .day-number {
-                font-weight: bold;
-                font-size: 14px;
-            }
-
-            .day .event {
-                font-size: 12px;
-                padding: 2px 5px;
-                background: #e0e0e0;
-                border-radius: 3px;
-                margin-top: 2px;
-                width: fit-content;
-            }
-
-            .month-header {
-                flex-direction: column;
-                align-items: center;
-                gap: 5px;
+        @media (max-width: 400px) {
+            .calendar {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
