@@ -28,20 +28,6 @@
             position: relative;
         }
 
-        /* Ab Tablet-Größe: 5 Spalten */
-        @media (max-width: 768px) {
-            .calendar {
-                grid-template-columns: repeat(5, 1fr);
-            }
-        }
-
-        /* Auf Handys: 3 Spalten */
-        @media (max-width: 480px) {
-            .calendar {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         .month-header {
             display: flex;
             justify-content: space-between;
@@ -52,15 +38,6 @@
             margin-bottom: 10px;
         }
 
-        /* Monatstitel zentrieren auf Handy */
-        @media (max-width: 480px) {
-            .month-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 5px;
-            }
-        }
-
         .day-header {
             font-weight: bold;
             background: #666666;
@@ -68,14 +45,6 @@
             padding: 10px;
             border-radius: 5px;
             font-size: 16px;
-        }
-
-        /* Auf Handys kleinere Header */
-        @media (max-width: 480px) {
-            .day-header {
-                padding: 5px;
-                font-size: 14px;
-            }
         }
 
         .day {
@@ -90,14 +59,6 @@
             justify-content: space-between;
             height: auto;
             word-wrap: break-word;
-        }
-
-        /* Auf Handys: Mehr Höhe und kleinere Schrift */
-        @media (max-width: 480px) {
-            .day {
-                min-height: 60px;
-                font-size: 12px;
-            }
         }
 
         .weekend {
@@ -128,11 +89,48 @@
             text-overflow: ellipsis;
         }
 
-        /* Events kleiner auf Handy */
-        @media (max-width: 480px) {
-            .event {
+        @media (max-width: 600px) {
+            .calendar {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+
+            .day-header {
+                display: inline-block;
+                width: calc(100% / 7);
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            .day {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-direction: column;
+                border: 1px solid #ddd;
+                padding: 8px;
+                min-height: auto;
+            }
+
+            .day .day-number {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .day .event {
                 font-size: 12px;
-                padding: 3px;
+                padding: 2px 5px;
+                background: #e0e0e0;
+                border-radius: 3px;
+                margin-top: 2px;
+                width: fit-content;
+            }
+
+            .month-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
             }
         }
     </style>
